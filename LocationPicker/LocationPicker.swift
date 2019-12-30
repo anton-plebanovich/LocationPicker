@@ -497,9 +497,7 @@ open class LocationPicker: UIViewController, UIGestureRecognizerDelegate {
     open override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
-        guard barButtonItems?.doneButtonItem == nil else { return }
-        
-        if let locationItem = selectedLocationItem {
+        if barButtonItems?.doneButtonItem == nil, let locationItem = selectedLocationItem {
             locationDidPick(locationItem: locationItem)
         }
         
