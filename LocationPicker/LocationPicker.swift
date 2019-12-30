@@ -105,6 +105,8 @@ open class LocationPicker: UIViewController, UIGestureRecognizerDelegate {
      */
     open var pickCompletion: ((LocationItem) -> Void)?
     
+    open var onCompletion: (() -> Void)?
+    
     /**
      Completion closure executed after user delete an alternative location.
      
@@ -500,6 +502,8 @@ open class LocationPicker: UIViewController, UIGestureRecognizerDelegate {
         if let locationItem = selectedLocationItem {
             locationDidPick(locationItem: locationItem)
         }
+        
+        onCompletion?()
     }
     
     
